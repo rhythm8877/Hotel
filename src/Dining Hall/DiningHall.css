@@ -47,16 +47,33 @@
 .room-entry-control-panel-filters {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 20px;
   margin-bottom: 20px;
   flex-wrap: wrap;
 }
 
-.room-entry-dropdown-container {
+.room-entry-search-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+.room-entry-search-input-wrapper {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 20px;
+}
+
+.room-entry-search-icon {
+  position: absolute;
+  left: 12px;
+  color: #666;
+  z-index: 1;
+}
+
+.room-entry-sort-container {
+  min-width: 200px;
+  width: auto;
 }
 
 .room-entry-dropdown-group {
@@ -256,7 +273,7 @@
   width: 100%;
 }
 
-.room-entry-form-group-full-width {
+.room-entry-form-group-full-width, .room-entry-form-group.full-width {
   flex-basis: 100%;
 }
 
@@ -390,7 +407,321 @@
   display: flex;
 }
 
-.room-entry-form-submit-button {
+/* Search Input Styles */
+.room-entry-search-input {
+  width: 100%;
+  padding: 10px 15px 10px 40px;
+  font-size: 14px;
+  border: 1px solid var(--room-entry-border-color);
+  border-radius: 6px;
+  outline: none;
+  background-color: #f8f9fa;
+}
+
+.room-entry-search-input:focus {
+  border-color: var(--room-entry-primary-color);
+  background-color: white;
+}
+
+/* React-select custom styling */
+.room-entry-react-select .room-entry-react-select__control {
+  border: 1px solid var(--room-entry-border-color);
+  border-radius: 6px;
+  min-height: 42px;
+  background-color: #f8f9fa;
+}
+
+.room-entry-react-select .room-entry-react-select__control:hover {
+  border-color: var(--room-entry-primary-color);
+}
+
+.room-entry-react-select .room-entry-react-select__control--is-focused {
+  border-color: var(--room-entry-primary-color);
+  box-shadow: 0 0 0 1px var(--room-entry-primary-color);
+  background-color: white;
+}
+
+.room-entry-react-select .room-entry-react-select__value-container {
+  padding: 2px 8px;
+}
+
+.room-entry-react-select .room-entry-react-select__single-value {
+  color: var(--room-entry-text-color);
+  font-size: 14px;
+}
+
+.room-entry-react-select .room-entry-react-select__placeholder {
+  color: #999;
+  font-size: 14px;
+}
+
+.room-entry-react-select .room-entry-react-select__indicator-separator {
+  display: none;
+}
+
+.room-entry-react-select .room-entry-react-select__dropdown-indicator {
+  color: #666;
+  padding: 8px;
+}
+
+.room-entry-react-select .room-entry-react-select__menu {
+  border: 1px solid var(--room-entry-border-color);
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.room-entry-react-select .room-entry-react-select__option {
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.room-entry-react-select .room-entry-react-select__option--is-selected {
+  background-color: var(--room-entry-primary-color);
+  color: white;
+}
+
+.room-entry-react-select .room-entry-react-select__option--is-focused {
+  background-color: var(--room-entry-primary-light);
+  color: var(--room-entry-text-color);
+}
+
+/* Action Button Styles */
+.room-entry-action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.room-entry-edit-button, .room-entry-delete-button, .room-entry-save-button, .room-entry-cancel-button {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: white;
+}
+
+.room-entry-edit-button {
+  background-color: var(--room-entry-primary-color);
+}
+
+.room-entry-edit-button:hover {
+  background-color: #3a5cbe;
+  transform: translateY(-1px);
+}
+
+.room-entry-delete-button {
+  background-color: #dc3545;
+}
+
+.room-entry-delete-button:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+}
+
+.room-entry-save-button {
+  background-color: #28a745;
+  width: auto;
+  padding: 8px 12px;
+}
+
+.room-entry-save-button:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
+
+.room-entry-cancel-button {
+  background-color: #6c757d;
+  width: auto;
+  padding: 8px 12px;
+}
+
+.room-entry-cancel-button:hover {
+  background-color: #5a6268;
+  transform: translateY(-1px);
+}
+
+/* Back Button Container */
+.room-entry-back-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  padding-right: 20px;
+}
+
+/* DateTime Container Styles */
+.room-entry-datetime-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.room-entry-time-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.room-entry-time-inputs input {
+  flex: 1;
+  min-width: 60px;
+}
+
+/* Textarea Styles */
+.room-entry-form-textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid var(--room-entry-border-color);
+  border-radius: 4px;
+  outline: none;
+  background-color: #f8f9fa;
+  resize: vertical;
+  min-height: 80px;
+  max-height: 120px;
+}
+
+.room-entry-form-textarea:focus {
+  border-color: var(--room-entry-primary-color);
+}
+
+/* Add More Button Styles */
+.room-entry-add-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.room-entry-add-more-button {
+  padding: 8px 16px;
+  background-color: var(--room-entry-primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.room-entry-add-more-button:hover {
+  background-color: #3a5bd1;
+}
+
+/* Checkbox Label Styles */
+.room-entry-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--room-entry-text-color);
+  cursor: default;
+}
+
+.room-entry-checkbox-label input[type="checkbox"] {
+  margin-top: 4px;
+  flex-shrink: 0;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+/* Improved Checkbox Container Styles */
+.room-entry-checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.room-entry-checkbox-container:hover {
+  background-color: var(--room-entry-primary-light);
+}
+
+.room-entry-checkbox-input {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--room-entry-primary-color);
+}
+
+.room-entry-checkbox-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--room-entry-text-color);
+  user-select: none;
+}
+
+/* Table Styles */
+.room-entry-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.room-entry-table th:nth-child(1) { /* Sl No. */
+  width: 60px;
+}
+
+.room-entry-table th:nth-child(2) { /* Requisition Type */
+  width: 15%;
+}
+
+.room-entry-table th:nth-child(3) { /* Type of Accommodation */
+  width: 25%;
+}
+
+.room-entry-table th:nth-child(4) { /* Name of Requisitioner */
+  width: 30%;
+}
+
+.room-entry-table th:nth-child(5) { /* Date */
+  width: 15%;
+}
+
+.room-entry-table th:nth-child(6) { /* Action */
+  width: 15%;
+}
+
+.room-entry-table td {
+  position: relative;
+  overflow: visible;
+  padding: 8px 12px;
+  vertical-align: middle;
+}
+
+/* Table Input Styles */
+.room-entry-table-input {
+  width: 100%;
+  height: 35px;
+  padding: 6px 8px;
+  font-size: 13px;
+  border: 1px solid var(--room-entry-border-color);
+  border-radius: 4px;
+  outline: none;
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+}
+
+.room-entry-table-input:focus {
+  border-color: var(--room-entry-primary-color);
+  background-color: white;
+}
+
+.room-entry-table-input::placeholder {
+  color: #999;
+  font-size: 12px;
+}
+
+.room-entry-form-submit-button, .room-entry-submit-button {
   background-color: var(--room-entry-primary-color);
   color: white;
   border: none;
@@ -403,8 +734,119 @@
   min-width: 150px;
 }
 
-.room-entry-form-submit-button:hover {
+.room-entry-form-submit-button:hover, .room-entry-submit-button:hover {
   background-color: #3a5fb8;
+}
+
+/* Add Guest Button Styles */
+.room-entry-add-guest-button {
+  padding: 8px 16px;
+  background-color: var(--room-entry-primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+.room-entry-add-guest-button:hover {
+  background-color: #3a5bd1;
+}
+
+/* Food Arrangement Table Specific Styles */
+.food-arrangement-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.food-arrangement-table th {
+  background-color: var(--room-entry-primary-light);
+  padding: 12px 8px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid var(--room-entry-border-color);
+  white-space: nowrap;
+  min-width: 120px;
+}
+
+.food-arrangement-table th:first-child {
+  min-width: 60px;
+}
+
+.food-arrangement-table th:nth-child(2) {
+  min-width: 150px;
+}
+
+.food-arrangement-table td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid var(--room-entry-border-color);
+  vertical-align: middle;
+}
+
+.food-arrangement-table .room-entry-time-inputs {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.food-arrangement-table .room-entry-time-inputs input {
+  width: 50px;
+  min-width: 50px;
+  max-width: 50px;
+  text-align: center;
+  padding: 4px;
+  font-size: 12px;
+}
+
+/* Guest Details Table Specific Styles */
+.guest-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.guest-details-table th {
+  background-color: var(--room-entry-primary-light);
+  padding: 12px 8px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid var(--room-entry-border-color);
+  white-space: nowrap;
+}
+
+.guest-details-table th:first-child {
+  min-width: 200px;
+}
+
+.guest-details-table th:nth-child(2),
+.guest-details-table th:nth-child(3),
+.guest-details-table th:nth-child(4),
+.guest-details-table th:nth-child(5) {
+  min-width: 80px;
+}
+
+.guest-details-table td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid var(--room-entry-border-color);
+  vertical-align: middle;
+}
+
+.guest-details-table input[type="text"] {
+  width: 100%;
+  min-width: 180px;
+}
+
+.guest-details-table input[type="number"] {
+  width: 60px;
+  text-align: center;
 }
 
 /* Photo Modal Styles */
@@ -482,9 +924,12 @@
     align-items: stretch;
   }
 
-  .room-entry-dropdown-container {
-    flex-direction: column;
-    gap: 15px;
+  .room-entry-search-container {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .room-entry-sort-container {
     width: 100%;
   }
 
@@ -507,6 +952,23 @@
   .room-entry-add-button {
     width: 100%;
     padding: 12px;
+  }
+
+  .room-entry-action-buttons {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .room-entry-edit-button, .room-entry-delete-button, .room-entry-save-button, .room-entry-cancel-button {
+    font-size: 12px;
+    padding: 6px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .room-entry-save-button, .room-entry-cancel-button {
+    width: auto;
+    padding: 6px 10px;
   }
 
   .room-entry-label-text {

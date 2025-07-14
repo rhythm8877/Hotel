@@ -1,8 +1,9 @@
 "use client"
 
 import { useState } from "react"
+import DiningHall from "../Dining Hall/DiningHall"
 import Navbar from "../Navbar/Navbar"
-import RoomEntry from "../Room Entry/RoomEntry"
+import Room from "../Room/Room"
 import Sidebar from "../Sidebar/Sidebar"
 import "./Dashboard.css"
 
@@ -12,7 +13,9 @@ const Dashboard = () => {
   const renderSection = () => {
     switch (activeSection) {
       case "room-entry":
-        return <RoomEntry />
+        return <Room />
+      case "dining-hall":
+        return <DiningHall />
       default:
         return <div className="empty-content">Select an option from the sidebar</div>
     }
