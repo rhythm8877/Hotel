@@ -1,0 +1,41 @@
+.dashboard-grid {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Alternative approach for collapsed sidebar - will be handled by JavaScript */
+.dashboard-grid.sidebar-collapsed {
+  /* Sidebar width will be handled by the sidebar component itself */
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-content {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+  background-color: var(--main-bg, #f8fafc);
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .content-wrapper {
+    height: auto;
+    min-height: calc(100vh - 60px);
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+}
