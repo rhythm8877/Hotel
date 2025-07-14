@@ -25,32 +25,32 @@ const RoomEntry = () => {
   // Dummy room data - 5 rooms for each type
   const [roomData, setRoomData] = useState([
     // Single Rooms
-    { id: 1, roomType: "Single Room", status: "Booked", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Single+Room+1"] },
-    { id: 2, roomType: "Single Room", status: "Vacant", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Single+Room+2"] },
-    { id: 3, roomType: "Single Room", status: "Booked", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Single+Room+3"] },
-    { id: 4, roomType: "Single Room", status: "Vacant", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Single+Room+4"] },
-    { id: 5, roomType: "Single Room", status: "Booked", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Single+Room+5"] },
+    { id: 1, roomType: "Single Room", status: "Booked", photos: ["single-room.png"] },
+    { id: 2, roomType: "Single Room", status: "Vacant", photos: ["single-room.png"] },
+    { id: 3, roomType: "Single Room", status: "Booked", photos: ["single-room.png"] },
+    { id: 4, roomType: "Single Room", status: "Vacant", photos: ["single-room.png"] },
+    { id: 5, roomType: "Single Room", status: "Booked", photos: ["single-room.png"] },
 
     // Double Rooms
-    { id: 6, roomType: "Double Room", status: "Vacant", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Double+Room+1"] },
-    { id: 7, roomType: "Double Room", status: "Booked", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Double+Room+2"] },
-    { id: 8, roomType: "Double Room", status: "Vacant", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Double+Room+3"] },
-    { id: 9, roomType: "Double Room", status: "Booked", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Double+Room+4"] },
-    { id: 10, roomType: "Double Room", status: "Vacant", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Double+Room+5"] },
+    { id: 6, roomType: "Double Room", status: "Vacant", photos: ["double-room.png"] },
+    { id: 7, roomType: "Double Room", status: "Booked", photos: ["double-room.png"] },
+    { id: 8, roomType: "Double Room", status: "Vacant", photos: ["double-room.png"] },
+    { id: 9, roomType: "Double Room", status: "Booked", photos: ["double-room.png"] },
+    { id: 10, roomType: "Double Room", status: "Vacant", photos: ["double-room.png"] },
 
     // Standard Rooms
-    { id: 11, roomType: "Standard Room", status: "Booked", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Standard+Room+1"] },
-    { id: 12, roomType: "Standard Room", status: "Vacant", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Standard+Room+2"] },
-    { id: 13, roomType: "Standard Room", status: "Booked", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Standard+Room+3"] },
-    { id: 14, roomType: "Standard Room", status: "Vacant", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Standard+Room+4"] },
-    { id: 15, roomType: "Standard Room", status: "Booked", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Standard+Room+5"] },
+    { id: 11, roomType: "Standard Room", status: "Booked", photos: ["standard-room.png"] },
+    { id: 12, roomType: "Standard Room", status: "Vacant", photos: ["standard-room.png"] },
+    { id: 13, roomType: "Standard Room", status: "Booked", photos: ["standard-room.png"] },
+    { id: 14, roomType: "Standard Room", status: "Vacant", photos: ["standard-room.png"] },
+    { id: 15, roomType: "Standard Room", status: "Booked", photos: ["standard-room.png"] },
 
     // Deluxe Rooms
-    { id: 16, roomType: "Deluxe Room", status: "Vacant", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Deluxe+Room+1"] },
-    { id: 17, roomType: "Deluxe Room", status: "Booked", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Deluxe+Room+2"] },
-    { id: 18, roomType: "Deluxe Room", status: "Vacant", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Deluxe+Room+3"] },
-    { id: 19, roomType: "Deluxe Room", status: "Booked", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Deluxe+Room+4"] },
-    { id: 20, roomType: "Deluxe Room", status: "Vacant", photos: ["https://via.placeholder.com/400x300/4a6fdc/ffffff?text=Deluxe+Room+5"] }
+    { id: 16, roomType: "Deluxe Room", status: "Vacant", photos: ["deluxe-room.png"] },
+    { id: 17, roomType: "Deluxe Room", status: "Booked", photos: ["deluxe-room.png"] },
+    { id: 18, roomType: "Deluxe Room", status: "Vacant", photos: ["deluxe-room.png"] },
+    { id: 19, roomType: "Deluxe Room", status: "Booked", photos: ["deluxe-room.png"] },
+    { id: 20, roomType: "Deluxe Room", status: "Vacant", photos: ["deluxe-room.png"] }
   ]);
 
   // Room type options

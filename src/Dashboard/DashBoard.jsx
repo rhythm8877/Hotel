@@ -7,18 +7,24 @@ import Sidebar from "../Sidebar/Sidebar"
 import "./Dashboard.css"
 
 const Dashboard = () => {
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
+  const [activeSection, setActiveSection] = useState("room-entry")
+
+  const renderSection = () => {
+    switch (activeSection) {
+      case "room-entry":
+        return <RoomEntry />
+      default:
+        return <div className="empty-content">Select an option from the sidebar</div>
+    }
+  }
 
   return (
-    <div className={`dashboard-grid ${isSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
-      <Sidebar
-        isCollapsed={isSidebarCollapsed}
-        onToggleCollapse={setIsSidebarCollapsed}
-      />
+    <div className="dashboard-grid">
+      <Sidebar activeItem={activeSection} setActiveItem={setActiveSection} />
       <div className="content-wrapper">
         <Navbar />
         <main className="main-content">
-          <RoomEntry />
+          {renderSection()}
         </main>
       </div>
     </div>

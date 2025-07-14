@@ -1,41 +1,69 @@
 .dashboard-grid {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* Alternative approach for collapsed sidebar - will be handled by JavaScript */
-.dashboard-grid.sidebar-collapsed {
-  /* Sidebar width will be handled by the sidebar component itself */
+  display: grid;
+  grid-template-columns: auto 1fr;
+  min-height: 100vh;
+  background-color: var(--main-bg);
+  transition: grid-template-columns 0.3s ease;
 }
 
 .content-wrapper {
   display: flex;
   flex-direction: column;
-  flex: 1;
   height: 100vh;
   overflow: hidden;
 }
 
 .main-content {
-  padding: 20px;
+  padding: 2rem;
   overflow-y: auto;
+  background-color: var(--main-bg);
   flex: 1;
-  background-color: var(--main-bg, #f8fafc);
+}
+
+.main-content-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  text-align: center;
+}
+
+.main-content-placeholder h1 {
+  color: var(--primary-color, #333);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.main-content-placeholder p {
+  color: var(--text-secondary, #666);
+  font-size: 1.2rem;
 }
 
 @media (max-width: 768px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
   }
 
   .content-wrapper {
     height: auto;
-    min-height: calc(100vh - 60px);
+    min-height: 100vh;
   }
 
   .main-content {
     padding: 1rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    margin: 0 auto 1rem;
+    margin-left: 0;
+  }
+
+  .logo {
+    font-size: 1.5rem;
   }
 }
